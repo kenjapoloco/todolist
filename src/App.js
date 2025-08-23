@@ -1,12 +1,17 @@
-import './App.css';
-import InputForm from './components/InputForm';
-import Title from './components/Title';
+import { useState } from "react";
+import "./App.css";
+import { InputForm } from "./components/InputForm";
+import { TodoList } from "./components/TodoList";
+import Title from "./components/Title.jsx";
 
 function App() {
+  const [taskList, setTaskList] = useState([]);
+
   return (
     <div className="body">
-        <Title />
-        <InputForm />
+      <Title />
+      <InputForm taskList={taskList} setTaskList={setTaskList} />
+      <TodoList taskList={taskList} setTaskList={setTaskList} />
     </div>
   );
 }
